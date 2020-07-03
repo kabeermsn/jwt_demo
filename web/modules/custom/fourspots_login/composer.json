@@ -1,0 +1,14 @@
+{
+  "name": "drupal/fourspots_login",
+  "type": "drupal-module",
+  "description": "User login service",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/fourspots_login",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/fourspots_login",
+    "source": "http://cgit.drupalcode.org/fourspots_login"
+  },
+  "require": { }
+}

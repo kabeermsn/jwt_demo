@@ -1,0 +1,5 @@
+entity.jwt_logout_entity.add_form:
+  route_name: entity.jwt_logout_entity.add_form
+  title: 'Add Jwtlogout entity'
+  appears_on:
+    - entity.jwt_logout_entity.collection

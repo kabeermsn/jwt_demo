@@ -1,0 +1,19 @@
+add jwtlogout entity entities:
+  title: 'Create new Jwtlogout entity entities'
+
+administer jwtlogout entity entities:
+  title: 'Administer Jwtlogout entity entities'
+  description: 'Allow to access the administration form to configure Jwtlogout entity entities.'
+  restrict access: true
+
+delete jwtlogout entity entities:
+  title: 'Delete Jwtlogout entity entities'
+
+edit jwtlogout entity entities:
+  title: 'Edit Jwtlogout entity entities'
+
+view published jwtlogout entity entities:
+  title: 'View published Jwtlogout entity entities'
+
+view unpublished jwtlogout entity entities:
+  title: 'View unpublished Jwtlogout entity entities'

@@ -1,0 +1,15 @@
+services:
+  fourspots_login.login:
+    class: Drupal\fourspots_login\LoginService
+    arguments: ['@entity_type.manager', '@flood', '@config.factory', '@request_stack', '@user.auth', '@module_handler']
+  fourspots_login.jwt_auth_issuer:
+    class: Drupal\fourspots_login\EventSubscriber\JwtAuthIssuerSubscriber
+    arguments: [ '@entity_type.manager', '@request_stack' ]
+    tags:
+      - { name: event_subscriber }
+  fourspots_login.jwt_auth_consumer:
+    class: Drupal\fourspots_login\EventSubscriber\JwtAuthConsumerSubscriber
+    arguments: [ '@entity_type.manager', '@request_stack' ]
+    tags:
+      - { name: event_subscriber }
+

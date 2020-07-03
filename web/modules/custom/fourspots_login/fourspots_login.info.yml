@@ -1,0 +1,8 @@
+name: 'fourspots login'
+type: module
+description: 'User login service'
+core: 8.x
+package: 'fourspots'
+dependencies:
+  - drupal:user
+  - jwt

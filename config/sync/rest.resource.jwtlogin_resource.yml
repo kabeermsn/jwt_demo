@@ -1,0 +1,18 @@
+uuid: e229e9b8-746a-40e2-a593-71fa380fe71a
+langcode: en
+status: true
+dependencies:
+  module:
+    - fourspots_login
+    - jwt
+    - serialization
+id: jwtlogin_resource
+plugin_id: jwtlogin_resource
+granularity: resource
+configuration:
+  methods:
+    - POST
+  formats:
+    - json
+  authentication:
+    - jwt_auth

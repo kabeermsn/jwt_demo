@@ -1,0 +1,20 @@
+
+fourspots_login.jwt_login_action:
+  path: '/jwt/user/login'
+  defaults:
+    _controller: '\Drupal\fourspots_login\Controller\FourSpotsLoginController::jwtLoginAction'
+    _title: 'jwt login'
+  methods:  [POST, OPTIONS]
+  requirements:
+    _access: 'TRUE'
+
+fourspots_login.jwt_logout_action:
+  path: '/jwt/user/logout'
+  defaults:
+    _controller: '\Drupal\fourspots_login\Controller\FourSpotsLoginController::jwtLogoutAction'
+    _title: 'jwt logout'
+  methods:  [POST, OPTIONS]
+  requirements:
+    _role: 'authenticated'
+  options:
+    _auth: ['jwt_auth']

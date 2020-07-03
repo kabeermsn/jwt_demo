@@ -1,0 +1,14 @@
+
+# Jwtlogout entity menu items definition
+entity.jwt_logout_entity.collection:
+  title: 'Jwtlogout entity list'
+  route_name: entity.jwt_logout_entity.collection
+  description: 'List Jwtlogout entity entities'
+  parent: system.admin_structure
+  weight: 100
+
+jwt_logout_entity.admin.structure.settings:
+  title: 'Jwtlogout entity settings'
+  description: 'Configure Jwtlogout entity entities'
+  route_name: jwt_logout_entity.settings
+  parent: system.admin_structure

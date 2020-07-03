@@ -1,0 +1,22 @@
+# Jwtlogout entity routing definition
+jwt_logout_entity.settings_tab:
+  route_name: jwt_logout_entity.settings
+  title: 'Settings'
+  base_route: jwt_logout_entity.settings
+
+entity.jwt_logout_entity.canonical:
+  route_name: entity.jwt_logout_entity.canonical
+  base_route: entity.jwt_logout_entity.canonical
+  title: 'View'
+
+entity.jwt_logout_entity.edit_form:
+  route_name: entity.jwt_logout_entity.edit_form
+  base_route: entity.jwt_logout_entity.canonical
+  title: 'Edit'
+
+entity.jwt_logout_entity.delete_form:
+  route_name:  entity.jwt_logout_entity.delete_form
+  base_route:  entity.jwt_logout_entity.canonical
+  title: Delete
+  weight: 10
+
