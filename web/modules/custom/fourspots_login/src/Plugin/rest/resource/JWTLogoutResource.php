@@ -65,8 +65,8 @@ public static function create(ContainerInterface $container, array $configuratio
    */
   public function post($payload) {
     // Prevent the use of jwt token on further request after logout
-    $authHeader = $this->requestStack->getCurrentRequest()->headers->get('Authorization');
-    $this->fourLoginService->saveJWTToken($authHeader);
+    /*$authHeader = $this->requestStack->getCurrentRequest()->headers->get('Authorization');
+    $this->fourLoginService->saveJWTToken($authHeader);*/
     //********************remove if functionality not required**************************//
 
     $response = [

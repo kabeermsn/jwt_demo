@@ -67,29 +67,10 @@ public static function create(ContainerInterface $container, array $configuratio
    *   Throws exception expected.
    */
   public function post($payload) {
-    if(isset($payload['username']) && isset($payload['password'])) {
-      $response = [
-        'status' => 0,
-        'message' => 'Authentication failed'
-      ];
-      $uid = $this->userAuth->authenticate(Xss::filter($payload['username']), Xss::filter($payload['password']));
-      if($uid) {
-        $token = $this->jwtAuth->generateToken();
-        if ($token === FALSE) {
-          $response['message'] = "Error. Please set a key in the JWT admin page.";
-          return new ModifiedResourceResponse($response, 500);
-        }
-        else {
-          $response = [
-            'status' => 1,
-            'token' => $token
-          ];
-        }
-      }
-      return new ModifiedResourceResponse($response, 200);
-    }
-    else {
-      throw new HttpException('412', 'parameter missing');
-    }
+    $token = $this->jwtAuth->generateToken();
+    return new ModifiedResourceResponse([
+      'status' => 1,
+      'token' => $token
+    ], 200);
   }
 }

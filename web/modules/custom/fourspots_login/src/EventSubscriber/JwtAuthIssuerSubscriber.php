@@ -79,25 +79,15 @@ class JwtAuthIssuerSubscriber implements EventSubscriberInterface {
    *   The event.
    */
   public function setDrupalClaims(JwtAuthGenerateEvent $event) {
-    $userStorage = $this->entityTypeManager->getStorage('user');
-    $parameters = $this->currentRequest->request->all();
-    if(isset($parameters['username'])) {
-      $username = Xss::filter($parameters['username']);
+    $username = $this->currentRequest->headers->get('PHP_AUTH_USER');
+    if($username) {
+      $accounts = $this->entityTypeManager->getStorage('user')->loadByProperties(['name' => $username, 'status' => 1]);
+      if(count($accounts)) {
+        $event->addClaim(
+          ['drupal', 'uid'],
+          $username
+        );
+      }
     }
-    else {
-      $jsonData = json_decode($this->currentRequest->getContent(), false);
-      $username = ($jsonData->username) ? Xss::filter($jsonData->username):'';
-    }
-    $accounts = $userStorage->loadByProperties(['name' => $username, 'status' => 1]);
-
-    $uid = -1;
-    $account = reset($accounts);
-    if ($account) $uid = $account->id();
-
-    $event->addClaim(
-      ['drupal', 'uid'],
-      $username
-    );
   }
-
 }
